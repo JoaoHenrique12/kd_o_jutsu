@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
+
+:root {
+  --font-serif: "Crimson Text", serif;
+  --font-sanserif: "Raleway", sans-serif;
+
+  --font-cursive: "Henny Penny", cursive;
+  --font-monospace: "Source Code Pro", monospace;
+
+  --clr-red: #73323e;
+
+  --clr-bg0: #0d0d0d;
+  --clr-bg1: #262314;
+  --clr-bg2: #59493b;
+  --clr-bg3: #8c8270;
+}
+
+/* Animation for Typed text */
+@keyframes blink {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.typed-text {
+  display: none;
+}
+
+.typed-text::after {
+  content: "|";
+  display: "inline";
+  animation: blink 0.7s linear infinite;
+}
+
+.final-typed-text::after {
+  content: "";
+  animation: none;
+}
+
+/* Main styles */
+
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: transparent;
+}
+
+body {
+  font-family: var(--font-sanserif);
+}
