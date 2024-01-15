@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-from .utils import search_jutsu_df_by_name, append_seal_sequence
+from flask import Flask, render_template, request, url_for
+from .utils import get_seal_name_by_id, search_jutsu_df_by_name, append_seal_sequence, search_jutsu_df_by_seals_id
 
 app = Flask(__name__)
 
@@ -7,7 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('home.html')
 
-@app.route("/jutsu_by_name")
+@app.route("/search_jutsu_by_name")
 def search_jutsu_by_name():
     search_query = request.args.get('search_query', '')
 
@@ -15,6 +15,21 @@ def search_jutsu_by_name():
     jutsus_found = append_seal_sequence(jutsus_found)
     return render_template('search_jutsu_by_name.html', jutsus=jutsus_found)
 
-@app.route("/jutsu_by_seals")
+@app.route("/search_jutsu_by_seals")
 def search_jutsu_by_seals():
-    return "We are working on it.(Seals)"
+    seals_names = list(map(get_seal_name_by_id, range(1,14)))
+    links = [url_for('static', filename=f'images/seals/{name}_seal.webp') for name in seals_names]
+    links = zip(links, seals_names)
+
+    search_query = request.args.get('search_query', '')
+
+    seals_id = []
+    try:
+        seals_id = list(map(int,search_query.split(',')))
+    except ValueError:
+        seals_id = []
+
+    jutsus_found = search_jutsu_df_by_seals_id(seals_id)
+    jutsus_found = append_seal_sequence(jutsus_found)
+
+    return render_template('search_jutsu_by_seals.html', image_links = links, jutsus = jutsus_found)

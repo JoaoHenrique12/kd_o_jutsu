@@ -37,12 +37,20 @@ def get_seal_name_by_id(seal_id=None):
     name = name.iloc[0,1].strip().lower()
     return name
 
+def get_seal_id_by_name(seal_name=None):
+    df = pd.read_csv(seal_path)
+    seal_id = df[df.iloc[:,1].str.strip() == seal_name].iloc[0,1].strip()
+    return seal_id
+
 def append_seal_sequence(jutsu_df: pd.DataFrame):
     jutsu_df['seal_sequence'] = jutsu_df['id'].apply(search_seals_id_by_jutsu_id)
 
     def get_seal_names(row):
         return ' -> '.join(list(map(get_seal_name_by_id, row['seal_sequence'])))
 
-    jutsu_df['seal_sequence'] = jutsu_df.apply(get_seal_names, axis=1)
+    try:
+        jutsu_df['seal_sequence'] = jutsu_df.apply(get_seal_names, axis=1)
+    except ValueError:
+        pass
 
     return jutsu_df
