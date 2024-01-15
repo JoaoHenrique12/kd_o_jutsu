@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<main id="home_container">
+  <a href="{{ url_for('search_jutsu_by_name') }}">Pesquisa de jutsu por nome</a>
+  <a href="{{ url_for('search_jutsu_by_seals') }}">Pesquisa de jutsu por selos</a>
+</main>
+{% endblock %}
