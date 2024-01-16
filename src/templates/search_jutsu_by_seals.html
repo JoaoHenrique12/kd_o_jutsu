@@ -13,12 +13,15 @@
 
       <div class="jutsu_images">
 
-        {% for image, alt in image_links %}
+        {% for image, alt in main_images %}
           <img src="{{ image }}" alt="{{ alt }}">
         {% endfor %}
       </div>
 
       <div class="jutsu_images_sequence">
+        {% for image, alt in searched_images %}
+          <img src="{{ image }}" alt="{{ alt }}">
+        {% endfor %}
       </div>
       
     </div>
