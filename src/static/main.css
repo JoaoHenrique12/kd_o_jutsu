@@ -112,7 +112,7 @@ form {
   width: 100%;
 }
 
-form button, form a {
+form button, form div, form a {
   width: 120px;
   padding: 10px;
   background-color: var(--clr-bg2);
@@ -129,7 +129,8 @@ form button, form a {
   transition: all 0.3s ease;
 }
 
-form button:hover, form a:hover {
+form button:hover, form div:hover, form a:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 
@@ -184,4 +185,54 @@ div.list_jutsus span.jutsu_name {
 div.list_jutsus span.jutsu_seal_sequence {
   font-family: var(--font-serif);
   font-size: 1.1rem;
+}
+
+/* Search by seals page*/
+
+form#form_jutsu_seals_search{
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+}
+
+main#search_seals_container {
+  width: 75%;
+  height: 800px;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 20px;
+
+  padding: 10px;
+  border-radius: 4px;
+}
+
+div.images {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.jutsu_images, .jutsu_images_sequence {
+  width: 380px;
+  height: 350px;
+  overflow-y: hidden;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+.jutsu_images_sequence {
+  overflow-y: scroll;
+}
+
+.jutsu_images img, .jutsu_images_sequence img{
+  width: 80px;
+  height: auto;
+}
+.jutsu_images img:hover {
+  cursor: pointer;
 }

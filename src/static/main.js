@@ -1,5 +1,13 @@
 function _trigger() {
   activate_typing_effect();
+  activate_clone_image_effect();
+}
+
+function activate_clone_image_effect(){
+  const elements = document.querySelectorAll(".jutsu_images img");
+  for (const e of elements) {
+    e.addEventListener("click", clone_image);
+  }
 }
 
 async function activate_typing_effect() {
@@ -35,4 +43,23 @@ function typing(el, txt) {
 function _remove_context(context_name) {
   const context = document.querySelector(context_name);
   context.remove();
+}
+
+function clone_image(param) {
+  const el = param.target;
+  const clone = el.cloneNode();
+
+  const container = document.querySelector('.jutsu_images_sequence');
+  const input = document.querySelector("input[type='hidden']");
+
+  input.value += el.alt + ",";
+
+  container.appendChild(clone);
+}
+
+function remove_clones(){
+  const elements = document.querySelectorAll('.jutsu_images_sequence img');
+  for (const e of elements) e.remove();
+  const input = document.querySelector("input[type='hidden']");
+  input.value = '';
 }

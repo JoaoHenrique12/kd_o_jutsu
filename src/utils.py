@@ -37,9 +37,9 @@ def get_seal_name_by_id(seal_id=None):
     name = name.iloc[0,1].strip().lower()
     return name
 
-def get_seal_id_by_name(seal_name=None):
+def get_seal_id_by_name(seal_name=''):
     df = pd.read_csv(seal_path)
-    seal_id = df[df.iloc[:,1].str.strip() == seal_name].iloc[0,1].strip()
+    seal_id = df[df.iloc[:,1].str.strip() == seal_name.strip()].iloc[0,0]
     return seal_id
 
 def append_seal_sequence(jutsu_df: pd.DataFrame):

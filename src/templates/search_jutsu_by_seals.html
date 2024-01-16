@@ -1,20 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
+<main id="search_seals_container" >
+
   <form id="form_jutsu_seals_search" method="get" >
     <input type="hidden" name="search_query" >
+    <div onclick="remove_clones();" href="#">Limpar Busca</div>
+    <a href="{{ url_for('index') }}">Página Inicial</a>
     <button type="submit">Pesquisar Jutsu</button>
   </form>
 
-  <div id="jutsu_images_sequence">
-  </div>
+    <div class="images">
 
-  <div class="jutsu_images">
+      <div class="jutsu_images">
 
-    {% for image, alt in image_links %}
-      <img src="{{ image }}" alt="{{ alt }}">
-    {% endfor %}
+        {% for image, alt in image_links %}
+          <img src="{{ image }}" alt="{{ alt }}">
+        {% endfor %}
+      </div>
 
-  </div>
+      <div class="jutsu_images_sequence">
+      </div>
+      
+    </div>
 
   <div class="list_jutsus">
     {% for x in jutsus.index %}
@@ -28,4 +35,5 @@
     </div>
     {% endfor %}
   </div>
+</main>
 {% endblock %}
