@@ -52,4 +52,52 @@
 
 body {
   font-family: var(--font-sanserif);
+  background-image: url('images/back_ground.jpg');
+  background-color: black;
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 20px;
+
+  height: 100vh;
+}
+
+body * {
+  color: white;
+}
+
+/* Main page */
+main#home_container {
+  height: 200px;
+  padding: 10px;
+  opacity: 0.9;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background-color: var(--clr-bg1);
+
+  border-radius: 5px;
+  box-shadow: 0px 0px 2px 2px black;
+}
+
+main#home_container > a {
+  text-decoration: none ;
+  font-weight: 400;
+  font-size: 1.5rem;
+
+  color: white;
+  transition: all 0.3s ease;
+}
+
+main#home_container > a:hover {
+  opacity: 1;
+  color: #888;
+  transform: scale(1.3);
 }
