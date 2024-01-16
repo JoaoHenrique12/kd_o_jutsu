@@ -3,13 +3,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 :root {
   --font-serif: "Crimson Text", serif;
   --font-sanserif: "Raleway", sans-serif;
 
-  --font-cursive: "Henny Penny", cursive;
+  --font-cursive: "Special Elite", cursive;
   --font-monospace: "Source Code Pro", monospace;
 
   --clr-red: #73323e;
@@ -100,4 +100,88 @@ main#home_container > a:hover {
   opacity: 1;
   color: #888;
   transform: scale(1.3);
+}
+
+/* Search by name page*/
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 20px;
+  width: 100%;
+}
+
+form button, form a {
+  width: 120px;
+  padding: 10px;
+  background-color: var(--clr-bg2);
+
+  font-family: var(--font-serif);
+  font-family: 1.5rem;
+  font-weight: bold;
+
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+  border: 0;
+
+  transition: all 0.3s ease;
+}
+
+form button:hover, form a:hover {
+  transform: scale(1.1);
+}
+
+form input[type='text'] {
+  color: black;
+  text-align: center;
+  padding: 5px;
+  font-family: var(--font-serif);
+  font-family: 1.5rem;
+  font-weight: bold;
+}
+
+main#search_name_container {
+  width: 75%;
+  height: 800px;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 10px;
+  border-radius: 4px;
+}
+
+div.list_jutsus {
+  height: 500px;
+  overflow-y: scroll;
+  width: 80%;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+div.list_jutsus div {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+div.list_jutsus span.jutsu_name {
+  font-family: var(--font-cursive);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+div.list_jutsus span.jutsu_seal_sequence {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
 }

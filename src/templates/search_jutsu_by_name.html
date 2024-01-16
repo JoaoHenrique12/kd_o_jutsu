@@ -1,20 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
-<form id="form_jutsu_name_search" method="get" >
-  <input type="text" name="search_query" >
-  <button type="submit">Pesquisar Jutsu</button>
-</form>
+<main id="search_name_container" >
+  <form id="form_jutsu_name_search" method="get" >
+    <input type="text" name="search_query" >
+    <button type="submit">Pesquisar Jutsu</button>
+    <a href="{{ url_for('index') }}">Página Inicial</a>
+  </form>
 
-<div class="list_jutsus">
-  {% for x in jutsus.index %}
-  <div >
-    <span class="jutsu_name">
-      {{ jutsus.loc[x, 'title'] }}
-    </span>
-    <span class="jutsu_seal_sequence">
-      {{ jutsus.loc[x, 'seal_sequence'] }}
-    </span>
+  <div class="list_jutsus">
+    {% for x in jutsus.index %}
+    <div >
+      <span class="jutsu_name">
+        {{ jutsus.loc[x, 'title'] }}
+      </span>
+      <span class="jutsu_seal_sequence">
+        {{ jutsus.loc[x, 'seal_sequence'] }}
+      </span>
+    </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
+</main>
 {% endblock %}
